@@ -18,7 +18,7 @@ Open the <span class="editor_link" data-file="/home/eduk8s/exercises/demo/pom.xm
 In the terminal, pop into the `demo` director and build the app:
 
 ```execute
-cd demo && ./mvnw package
+cd demo && ./mvnw package -U
 ```
 
 Then create a docker container:

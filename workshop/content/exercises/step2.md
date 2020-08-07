@@ -11,7 +11,7 @@ kubectl create deployment demo --image={{ REGISTRY_HOST }}/springguides/demo --d
 
 We need to add an image pull secret, so that Kubernetes can pull our image from the local registry. So add this to the deployment spec:
 
-<pre class="pastable" data-file="/home/eduk8s/exercises/demo/deployment.yaml" data-yaml-path="spec">
+<pre class="pastable" data-file="/home/eduk8s/exercises/demo/deployment.yaml" data-yaml-path="spec.template.spec">
 imagePullSecrets:
   - name: registry-credentials
 </pre>
