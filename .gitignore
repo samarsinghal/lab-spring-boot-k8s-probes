@@ -1,0 +1,10 @@
+.kube
+.cache
+.bash_history
+*.swp
+.m2/
+.local
+!.local/share/code-server/User/globalStorage/
+.config/
+.docker/
+.DS_Store
