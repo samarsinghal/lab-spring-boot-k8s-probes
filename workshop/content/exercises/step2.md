@@ -1,23 +1,22 @@
 
 {% include "code-server/package.liquid" %}
 
-To prepare for the deployment there is a secret that we need to apply once, so that Kubernetes can pull images from the private repo we have been using:
-
-```execute
-kubectl create secret generic registry-credentials --from-file=.dockerconfigjson=$HOME/.docker/config.json --type=kubernetes.io/dockerconfigjson
-```
-
 Quickly create a deployment manifest for the application on Kubernetes:
 
 ```execute
 kubectl create deployment demo --image={{ REGISTRY_HOST }}/springguides/demo --dry-run -o=yaml > deployment.yaml \
-&& sed -i '/    spec:/a \      imagePullSecrets:\n      - name: registry-credentials' deployment.yaml \
 && echo --- >> deployment.yaml \
 && kubectl create service clusterip demo --tcp=8080:8080 --dry-run -o=yaml >> deployment.yaml
 ```
-You can <span class="editor_link" data-file="/home/eduk8s/exercises/demo/deployment.yaml">open up the YAML in the IDE</span> and have a look at it.
 
-Let's add some configuration to the deployment for probes, as would be typical for an app using Spring Boot actuators:
+We need to add an image pull secret, so that Kubernetes can pull our image from the local registry. So add this to the deployment spec:
+
+<pre class="pastable" data-file="/home/eduk8s/exercises/demo/deployment.yaml" data-yaml-path="spec">
+imagePullSecrets:
+  - name: registry-credentials
+</pre>
+
+Let's add some configuration to the deployment for probes, as would be typical for an app using Spring Boot actuators. Add this YAML snippet to the container spec:
 
 <pre class="pastable" data-file="/home/eduk8s/exercises/demo/deployment.yaml" data-yaml-path="spec.template.spec.containers[0]">
 livenessProbe:
