@@ -10,13 +10,8 @@ kubectl create secret generic registry-credentials --from-file=.dockerconfigjson
 Quickly create a deployment manifest for the application on Kubernetes:
 
 ```execute
-kubectl create deployment demo --image={{ REGISTRY_HOST }}/springguides/demo --dry-run -o=yaml > deployment.yaml
-```
-
-Patch the deployment to add image pull secrets for our private registry:
-
-```execute
-sed -i '/    spec:/a \      imagePullSecrets:\n      - name: registry-credentials' deployment.yaml \
+kubectl create deployment demo --image={{ REGISTRY_HOST }}/springguides/demo --dry-run -o=yaml > deployment.yaml \
+&& sed -i '/    spec:/a \      imagePullSecrets:\n      - name: registry-credentials' deployment.yaml \
 && echo --- >> deployment.yaml \
 && kubectl create service clusterip demo --tcp=8080:8080 --dry-run -o=yaml >> deployment.yaml
 ```
@@ -44,7 +39,6 @@ Push the app to the cluster:
 ```execute
 kubectl apply -f deployment.yaml
 ```
-
 
 ```
 deployment.apps/demo created
