@@ -1,12 +1,12 @@
 {% include "code-server/package.liquid" %}
 
-Kubernetes has 3 types of probe. The most important are liveness and readiness. Not all apps need probes, and not all apps need readiness if they have a liveness probe, and vice versa. Spring Boot includes out-of-the box support for the commonly used “liveness” and “readiness” availability states. If you are using Spring Boot’s “actuator” support then these states are exposed as health endpoint groups. But in cases where both are present they would map naturally to `/actuator/health/liveness` (liveness) and `/actuator/health/readiness` (readiness). These endpoints are provided out of the box by the [Spring Boot Actuators](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints) feature. You can read more about Kubernetes probes in Spring Boot [in the user guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-kubernetes-probes).
+Kubernetes has 3 types of probe. The most important are liveness and readiness. Not all apps need probes, and not all apps need readiness if they have a liveness probe, and vice versa. Spring Boot includes out-of-the box support for the commonly used “liveness” and “readiness” availability states. If you are using Spring Boot’s “actuator” support then these states are exposed as health endpoint groups and they map to `/actuator/health/liveness` (liveness) and `/actuator/health/readiness` (readiness). These endpoints are provided out of the box by the [Spring Boot Actuators](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints) feature, but only exposed by default in a Kubernetes environment. You can read more about Kubernetes probes in Spring Boot [in the user guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-kubernetes-probes).
 
 > NOTE: The `/health` and `/info` endpoints are actually the *only* actuators enabled and exposed over HTTP by default. You don't have to worry about the others until you want to use them. You can use `/info` as a kind of informal liveness probe (works in older versions too).
 
 If a readiness probe fails then the app is taken out of the load balancer rotation, and no more traffic is sent to it, until it passes again. It can continue to pass liveness checks the whole time it is out of rotation.
 
-Open the <span class="editor_link" data-file="/home/eduk8s/exercises/demo/pom.xml">`pom.xml`</span> in the editor and add the actuator dependency:
+<span class="editor_link" data-file="/home/eduk8s/exercises/demo/pom.xml">Click here to open the pom.xml</span> in the editor. Then add the actuator dependency (click to copy to clipboard):
 
 ```copy
 <dependency>
