@@ -11,27 +11,33 @@ kubectl create deployment demo --image={{ REGISTRY_HOST }}/springguides/demo --d
 
 We need to add an image pull secret, so that Kubernetes can pull our image from the local registry. So add this to the deployment spec:
 
-<pre class="pastable" data-file="/home/eduk8s/exercises/demo/deployment.yaml" data-yaml-path="spec.template.spec">
-imagePullSecrets:
-  - name: eduk8s-registry-credentials
-</pre>
+```editor:insert-value-into-yaml
+file: exercises/demo/deployment.yaml
+path: spec.template.spec
+value:
+  imagePullSecrets:
+    - name: eduk8s-registry-credentials
+```
 
 Let's add some configuration to the deployment for probes, as would be typical for an app using Spring Boot actuators. Add this YAML snippet to the container spec:
 
-<pre class="pastable" data-file="/home/eduk8s/exercises/demo/deployment.yaml" data-yaml-path="spec.template.spec.containers[0]">
-livenessProbe:
-  httpGet:
-    path: /actuator/health/liveness
-    port: 8080
-  initialDelaySeconds: 10
-  periodSeconds: 3
-readinessProbe:
-  httpGet:
-    path: /actuator/health/readiness
-    port: 8080
-  initialDelaySeconds: 20
-  periodSeconds: 10
-</pre>
+```editor:insert-value-into-yaml
+file: exercises/demo/deployment.yaml
+path: spec.template.spec.containers[0]
+value:
+  livenessProbe:
+    httpGet:
+      path: /actuator/health/liveness
+      port: 8080
+    initialDelaySeconds: 10
+    periodSeconds: 3
+  readinessProbe:
+    httpGet:
+      path: /actuator/health/readiness
+      port: 8080
+    initialDelaySeconds: 20
+    periodSeconds: 10
+```
 
 Push the app to the cluster:
 
