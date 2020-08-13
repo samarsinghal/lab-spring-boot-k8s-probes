@@ -6,7 +6,14 @@ Kubernetes has 3 types of probe. The most important are liveness and readiness. 
 
 If a readiness probe fails then the app is taken out of the load balancer rotation, and no more traffic is sent to it, until it passes again. It can continue to pass liveness checks the whole time it is out of rotation.
 
-<span class="editor_link" data-file="/home/eduk8s/exercises/demo/pom.xml">Click here to open the pom.xml</span> in the editor. Then add the actuator dependency (click to copy to clipboard):
+Click here to open the pom.xml</span> in the editor.
+
+```editor:open-file
+line: 21
+file: exercises/demo/pom.xml
+```
+
+Then add the actuator dependency (click to copy to clipboard):
 
 ```copy
 <dependency>
