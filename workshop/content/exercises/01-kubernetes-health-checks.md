@@ -2,7 +2,7 @@ Kubernetes implements three types of probes for evaluating the health of your ap
 
 A startup probe is used to determine whether your application has started up correctly. A readiness probe is used to determine whether your application is in a state where it is able to accept inbound traffic such as HTTP requests. The liveness probe is used to test whether your application is still running.
 
-In the case of a startup or liveness probe failing, Kubernetes will terminate your application and restart it.
+In the case of a startup or liveness probe failing, Kubernetes will terminate the instance of your application and restart it.
 
 The success or failure of a readiness probe controls whether the IP address of your application pod is included in the list of endpoints associated with a service. Where an application had been running fine, the failure of a readiness probe results in the application being taken out of the load balancer rotation for the service, with no more traffic being sent to it until the readiness probe once again passes.
 
