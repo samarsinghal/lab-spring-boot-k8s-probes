@@ -1,5 +1,5 @@
 modules:
-  workshop-summary:
+  workshop-overview:
     name: Workshop Overview
     exit_sign: Setup Environment
   setup-environment:
@@ -9,6 +9,6 @@ modules:
     name: Add probes to a Spring Boot application
   exercises/step2:
     name: Deploy the Application in Kubernetes
-  workshop-overview:
+  workshop-summary:
     name: Workshop Summary
     exit_sign: Finish Workshop
