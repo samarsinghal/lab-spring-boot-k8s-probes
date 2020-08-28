@@ -4,20 +4,23 @@ Kubernetes has 3 types of probe. The most important are liveness and readiness. 
 
 If a readiness probe fails then the app is taken out of the load balancer rotation, and no more traffic is sent to it, until it passes again. It can continue to pass liveness checks the whole time it is out of rotation.
 
-Click here to open the pom.xml</span> in the editor.
+Click here to open the pom.xml in the editor.
 
 ```editor:open-file
-line: 21
 file: exercises/demo/pom.xml
+line: 21
 ```
 
-Then add the actuator dependency (click to copy to clipboard):
+Then add the actuator dependency:
 
-```copy
-<dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
+```editor:insert-lines-before-line
+file: exercises/demo/pom.xml
+line: 21
+text: |
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
 ```
 
 In the terminal, pop into the `demo` director and build the app:
