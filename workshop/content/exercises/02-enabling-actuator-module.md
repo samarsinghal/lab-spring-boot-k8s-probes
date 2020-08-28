@@ -14,7 +14,7 @@ tree .
 
 To enable the actuator module for the Java application, we need to edit the `pom.xml` file which contains the project and configuration details used by Maven to build the project.
 
-Open up the the `pom.xml` in the editor.
+Open up the the `pom.xml` file in the editor.
 
 ```editor:open-file
 file: ~/exercises/demo/pom.xml
