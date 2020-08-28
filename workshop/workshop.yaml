@@ -2,7 +2,7 @@ name: Probes Sample
 
 modules:
     activate:
-        - intro
+        - workshop-overview
         - exercises/step1
         - exercises/step2
-        - finish
+        - workshop-summary

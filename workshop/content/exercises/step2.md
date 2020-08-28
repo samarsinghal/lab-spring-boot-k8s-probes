@@ -4,7 +4,7 @@
 Quickly create a deployment manifest for the application on Kubernetes:
 
 ```execute
-kubectl create deployment demo --image={{ REGISTRY_HOST }}/springguides/demo --dry-run -o=yaml > deployment.yaml \
+kubectl create deployment demo --image={{ registry_host }}/springguides/demo --dry-run -o=yaml > deployment.yaml \
 && echo --- >> deployment.yaml \
 && kubectl create service clusterip demo --tcp=8080:8080 --dry-run -o=yaml >> deployment.yaml
 ```

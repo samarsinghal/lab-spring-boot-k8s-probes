@@ -31,13 +31,13 @@ cd demo && ./mvnw package -U
 Then create a docker container:
 
 ```execute
-./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName={{ REGISTRY_HOST }}/springguides/demo
+./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName={{ registry_host }}/springguides/demo
 ```
 
 You can test that the container is working:
 
 ```execute
-docker run -p 8080:8080 {{ REGISTRY_HOST }}/springguides/demo
+docker run -p 8080:8080 {{ registry_host }}/springguides/demo
 ```
 
 Sample output:
@@ -78,7 +78,7 @@ Once you are sure it is working you can kill the container:
 And push it to the local registry:
 
 ```execute
-docker push {{ REGISTRY_HOST }}/springguides/demo
+docker push {{ registry_host }}/springguides/demo
 ```
 
-> NOTE: There is a Docker (v2) registry running on `{{ REGISTRY_HOST }}` port 80, just to make the tutorial work smoothly, and so you don't have to authenticate to Dockerhub. If you prefer to use Dockerhub just remove `{{ REGISTRY_HOST }}` from the container labels (or insert another registry host instead).
+> NOTE: There is a Docker (v2) registry running on `{{ registry_host }}` port 80, just to make the tutorial work smoothly, and so you don't have to authenticate to Dockerhub. If you prefer to use Dockerhub just remove `{{ registry_host }}` from the container labels (or insert another registry host instead).
