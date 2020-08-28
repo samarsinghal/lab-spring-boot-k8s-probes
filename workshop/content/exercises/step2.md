@@ -1,6 +1,3 @@
-
-{% include "code-server/package.liquid" %}
-
 Quickly create a deployment manifest for the application on Kubernetes:
 
 ```execute
