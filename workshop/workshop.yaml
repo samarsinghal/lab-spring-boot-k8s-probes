@@ -5,7 +5,7 @@ modules:
         - workshop-overview
         - setup-environment
         - exercises/01-kubernetes-health-checks
-        - exercices/02-enabling-actuator-module
+        - exercises/02-enabling-actuator-module
         - exercises/03-build-a-container-image
         - exercises/04-deploying-to-kubernetes
         - workshop-summary
