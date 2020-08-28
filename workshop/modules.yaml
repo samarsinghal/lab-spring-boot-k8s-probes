@@ -12,7 +12,7 @@ modules:
   exercises/03-build-a-container-image:
     name: Build a Container Image
   exercises/04-deploying-to-kubernetes:
-    name: Deploy the Application in Kubernetes
+    name: Deploy to Kubernetes
   workshop-summary:
     name: Workshop Summary
     exit_sign: Finish Workshop
