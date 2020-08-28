@@ -11,9 +11,3 @@ The liveness probe is distinct from the readiness probe and will continue to be 
 Whether you need any of these probes will depend on your application and how tolerant of failures, or an overloading state, you want to make your application.
 
 Spring Boot includes out-of-the box support for endpoints that can be used in conjunction with the Kubernetes liveness and readiness probes. The endpoints can be enabled by adding the [Spring Boot actuator module](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) to your application.
-
-{% comment %}
-If you are using Spring Boot’s “actuator” support then these states are exposed as health endpoint groups and they map to `/actuator/health/liveness` (liveness) and `/actuator/health/readiness` (readiness). These endpoints are provided out of the box by the [Spring Boot Actuators](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints) feature, but only exposed by default in a Kubernetes environment. You can read more about Kubernetes probes in Spring Boot [in the user guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-kubernetes-probes).
-
-> NOTE: The `/health` and `/info` endpoints are actually the *only* actuators enabled and exposed over HTTP by default. You don't have to worry about the others until you want to use them. You can use `/info` as a kind of informal liveness probe (works in older versions too).
-{% endcomment %}

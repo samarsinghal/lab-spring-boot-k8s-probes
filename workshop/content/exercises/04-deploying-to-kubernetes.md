@@ -15,8 +15,8 @@ text: |
   kind: Deployment
   metadata:
     name: demo
-  labels:
-    app: demo
+    labels:
+      app: demo
   spec:
     replicas: 1
     selector:
@@ -68,7 +68,13 @@ The output should be:
 deployment.apps/demo created
 ```
 
-Check that the deployment has succeeded by running:
+To monitor the deployment, run:
+
+```execute
+kubectl rollout status deployment/demo
+```
+
+To see all the resources which were created, run:
 
 ```execute
 kubectl get all
@@ -105,7 +111,7 @@ To check that the liveness endpoint is working, run:
 curl localhost:8080/actuator/health/liveness
 ```
 
-In both cases they should responsd with:
+In both cases they should respond with:
 
 ```
 {"status":"UP"}
