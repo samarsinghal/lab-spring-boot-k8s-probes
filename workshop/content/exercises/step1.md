@@ -15,13 +15,13 @@ Then add the actuator dependency:
 
 ```editor:insert-lines-before-line
 file: exercises/demo/pom.xml
-line: 21
-text: |+8
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
+text: |+2
+          <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+          </dependency>
 
+line: 21
 ```
 
 In the terminal, pop into the `demo` director and build the app:
