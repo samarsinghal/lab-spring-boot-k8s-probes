@@ -5,9 +5,13 @@ modules:
   setup-environment:
     name: Setup Environment
     exit_sign: Start Workshop
-  exercises/step1:
-    name: Add probes to a Spring Boot application
-  exercises/step2:
+  exercises/01-kubernetes-health-checks:
+    name: Kubernetes Health Checks
+  exercises/02-enabling-actuator-module:
+    name: Enabling Actuator Module
+  exercises/03-build-a-container-image:
+    name: Build a Container Image
+  exercises/04-deploying-to-kubernetes:
     name: Deploy the Application in Kubernetes
   workshop-summary:
     name: Workshop Summary
