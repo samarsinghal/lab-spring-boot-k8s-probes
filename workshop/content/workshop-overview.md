@@ -1,8 +1,9 @@
 Spring Boot provides a number of features to ensure it works well with Kubernetes. This workshop shows you how to add [liveness and readiness probes](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) to a Spring Boot application in Kubernetes. The topics we will cover are:
 
-1. Add some endpoints to a Spring Boot application and build and push a Docker image
-2. Configure the probes in a few lines of YAML
-3. Deploy the image as a container in Kubernetes
+1. Explore the different types of Kubernetes health checks.
+1. Configure our Spring Boot application to enable endpoints for the health checks.
+2. Build a container image for the application and push it to a image registry.
+3. Deploy the image to Kubernetes with health checks enabled.
 
 We don't cover all the features of Spring and Spring Boot. For more information you can check out the [Spring guides](https://spring.io/guides) or [Spring project homepages](https://spring.io/projects).
 
