@@ -29,7 +29,7 @@ text: |
       spec:
         containers:
         - name: demo
-          image: {{ registry_host }}/springguides/demo
+          image: docker.io/samarsinghal/probe:latest
 ```
 
 The deployment will use the `default` service account, which already has the image pull secret for the image registry associated with it, so all we have to do is provide the name of our container image.
