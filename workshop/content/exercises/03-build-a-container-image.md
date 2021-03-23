@@ -43,8 +43,6 @@ The response should be:
 {"status":"UP"}
 ```
 
-> NOTE: You will not be able to exercise the `/actuator/health/readiness` and `/actuator/health/liveness` endpoints at this point, as they are only enabled when the application is run inside of Kubernetes.
-
 Once you are happy the main health endpoint is working kill the container:
 
 ```terminal:interrupt

@@ -42,7 +42,7 @@ value:
     httpGet:
       path: /actuator/health/readiness
       port: 8080
-    initialDelaySeconds: 20
+    initialDelaySeconds: 60
     periodSeconds: 10
 ```
 
@@ -66,24 +66,14 @@ To monitor the deployment, run:
 kubectl rollout status deployment/demo
 ```
 
-To see all the resources which were created, run:
+Let's have a look at the pods:
 
-```execute
-kubectl get all
+```execute-2
+kubectl get pods
 ```
 
-The output should be similar to:
+This pod is not running yet, since the readiness probe initialDelaySeconds is set to 60 sec. As expected, the readiness probe is used by Kubernetes to check if this app is ready.
 
-```
-NAME                             READY     STATUS      RESTARTS   AGE
-pod/demo-658b7f4997-qfw9l        1/1       Running     0          1m
-
-NAME                   READY     UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/demo   1/1       1            1           1m
-
-NAME                              DESIRED   CURRENT   READY     AGE
-replicaset.apps/demo-658b7f4997   1         1         1         1m
-```
 
 To test that the endpoints for the liveness and readiness probes are working, we need to be able to connect to the application. Normally you would have created a service for the application, as well as exposed it outside of the cluster using an ingress or via a load balancer. Since we haven't done that, we will set up port forwarding to expose the application to the local environment.
 
