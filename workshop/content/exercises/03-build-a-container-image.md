@@ -1,18 +1,4 @@
-We are ready now to build the application.
-
-Run Maven to build the source code and create the application JAR file.
-
-```execute
-./mvnw package -U
-```
-
-When complete you can find the build artefacts in the `target` sub directory.
-
-```execute
-tree target
-```
-
-The application could be run at this point, but because we want to deploy the application to Kubernetes, we need to create a container image which bundles up the application.
+We are ready now to build the application. we want to deploy the application to Kubernetes, we need to create a container image which bundles up the application.
 
 To create the container image, we are going to use the Maven `spring-boot:build-image` command. This will build us a container image without needing to worry about a `Dockerfile`.
 

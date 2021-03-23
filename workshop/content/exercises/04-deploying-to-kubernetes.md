@@ -1,12 +1,4 @@
-Before we can deploy the container image to Kubernetes, it needs to be made available via an image registry from which Kubernetes can pull the image when deploying it.
-
-This workshop environment provides you with your own image registry located at `{{ registry_host }}`. As the container image when built was tagged with the image registry name, we need only push the image to the registry.
-
-```execute
-docker push {{ registry_host }}/springguides/demo
-```
-
-Next we need a deployment resource for Kubernetes to describe how to deploy the container image. Start out by creating a file `deployment.yaml` containing the following deployment description.
+We now need a deployment resource for Kubernetes to describe how to deploy the container image. Start out by creating a file `deployment.yaml` containing the following deployment description.
 
 ```editor:append-lines-to-file
 file: ~/exercises/demo/deployment.yaml
@@ -116,3 +108,6 @@ In both cases they should respond with:
 ```
 {"status":"UP"}
 ```
+
+
+Note: If all instances of an application are unready, a Kubernetes Service with type=ClusterIP or NodePort will not accept any incoming connections. There is no HTTP error response (503 etc.) since there is no connection. A Service with type=LoadBalancer might or might not accept connections, depending on the provider. A Service that has an explicit Ingress will also respond in a way that depends on the implementation - the ingress service itself will have to decide how to handle the "connection refused" from downstream. HTTP 503 is quite likely in the case of both load balancer and ingress.
